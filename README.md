@@ -16,6 +16,12 @@ Kubernetes provides you with a framework to run distributed systems resiliently.
 - **Self-healing:** Kubernetes restarts containers that fail, replaces containers, kills containers that don't respond to your user-defined health check, and doesn't advertise them to clients until they are ready to serve.
 - **Secret and configuration management:** Kubernetes lets you store and manage sensitive information, such as passwords, OAuth tokens, and SSH keys. You can deploy and update secrets and application configuration without rebuilding your container images, and without exposing secrets in your stack configuration.
 
+## Drawbacks of K8
+- **Kubernetes can be an overkill for simple applications:** If you do not intend to develop anything complex for a large or distributed audience (so, you are not building a worldwide online shop with thousands of customers for example) or with high computing resource needs (e.g. machine learning applications), there is not much benefit for you from the technical power of k8s.
+- **Kubernetes is very complex and can reduce productivity:** Kubernetes is known for its complexity. Especially for developers not familiar with infrastructure technologies, it can be very hard to get used to the Kubernetes development workflow.
+- **The transition to Kubernetes can be cumbersome:** Most companies cannot start on a green field, your existing software needs to be adapted to run smoothly with Kubernetes or at least alongside newly built application that will run on Kubernetes. It is hard to estimate how much effort this requires as this depends heavily on the software.
+- **Kubernetes can be more expensive than its alternatives:** The previously mentioned disadvantages cost time of your engineers that is not spent on creating new “tangible” business value.
+
 ## Competitors of K8
 The following link provides more detail on the competitors for K8 `https://www.clickittech.com/devops/kubernetes-alternatives/`
 - Amazon ECS
