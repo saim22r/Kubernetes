@@ -127,3 +127,6 @@ status:
     ingress:
     - hostname: localhost
 ```
+- Create both of the pods separately and check they are running
+- Go to your localhost and nginx default page should be running
+
