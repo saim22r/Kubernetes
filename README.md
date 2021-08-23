@@ -130,3 +130,4 @@ status:
 - Create both of the pods separately and check they are running
 - Go to your localhost and nginx default page should be running
 
+## Iteration 2 - Launching node app and db
