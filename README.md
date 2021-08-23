@@ -22,6 +22,12 @@ Kubernetes provides you with a framework to run distributed systems resiliently.
 - **The transition to Kubernetes can be cumbersome:** Most companies cannot start on a green field, your existing software needs to be adapted to run smoothly with Kubernetes or at least alongside newly built application that will run on Kubernetes. It is hard to estimate how much effort this requires as this depends heavily on the software.
 - **Kubernetes can be more expensive than its alternatives:** The previously mentioned disadvantages cost time of your engineers that is not spent on creating new “tangible” business value.
 
+
+## Use cases
+- **Simple Deployment of Stateless Applications:** A very popular stateless app to run on top of Kubernetes is nginx, the open-source web server. Running nginx on Kubernetes requires a deployment YAML file that describes the pod and underlying containers.
+- **Deploy Stateful Data Services:** Using the same data structure and the same tools, it’s possible to create services on the platform with persistent storage. While it’s a little extra work to re-platform data services like databases onto the Kubernetes platform, it does make sense.
+- **CI/CD Platform with Kubernetes:** Kubernetes’ open API brings many advantages to developers. The level of control means developers can integrate Kubernetes into their automated CI/CD workflow effortlessly. So even while Kubernetes doesn’t provide any CI/CD features out of the box, it’s very easy to add Kubernetes to a CI/CD pipeline.
+
 ## Competitors of K8
 The following link provides more detail on the competitors for K8 `https://www.clickittech.com/devops/kubernetes-alternatives/`
 - Amazon ECS
