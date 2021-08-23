@@ -55,3 +55,75 @@ The following link provides more detail on the non-managed services for K8 `http
 - Kubewatch
 - Prometheus
 - HELM
+
+## Commands
+- `kubectl get service` or `kubectl get svc` 
+- `kubectl get nodes` Shows the nodes
+- `kubectl get pods` Shows the running pods
+- `kubectl create -f <file_name>.yml` Creates the pod using the code in the file
+- `kubectl edit deploy <pod_name>` Edit deploy file in notepad
+- `kubectl edit svc <pod_name>` Edit service file in notepad
+- `kubectl delete deploy <pod_name>` Deletes the deploy pod 
+- `kubectl delete service <pod_name>` Deletes the service pod 
+
+## Iteration 1
+- Open the docker desktop app -> click on settings -> enable kubernetes and restart
+- Delete the containers occupying ports 80, 27017 and 3000
+- Delete any unused containers and images to free up space. Ensure you have these available on DockerHub before deleting. 
+- Create a deploy YAML file `nginx_k8_deploy.yml` and put the following code
+```
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-deployment
+  
+spec:
+  selector:
+    matchLabels:
+      app: nginx 
+
+  replicas: 2 
+
+  template:
+    metadata:
+      labels:
+        app: nginx
+
+    spec:
+      containers:
+        - name: nginx
+          image: nginx
+          ports:
+          - containerPort: 80
+```
+- Create a service YAML file in the same directory `nginx-service.yml`
+```
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx-deployment
+  namespace: default
+  resourceVersion: "40883"
+  uid: 9190ab75-d61c-4ff4-a3d1-0d293fa8d72e
+spec:
+  # clusterIP: 10.96.0.1
+  # clusterIPs:
+  # - 10.96.0.1
+  # externalTrafficPolicy: Cluster
+  # ipFamilies:
+  # - IPv4
+  # ipFamilyPolicy: SingleStack
+  ports:
+  - nodePort: 30442
+    port: 80
+    protocol: TCP
+    targetPort: 80
+  selector:
+    app: nginx
+  sessionAffinity: None
+  type: LoadBalancer
+status:
+  loadBalancer:
+    ingress:
+    - hostname: localhost
+```

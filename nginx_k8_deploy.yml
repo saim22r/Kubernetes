@@ -1,0 +1,26 @@
+# K8 works with API versions to declare the resources
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-deployment
+
+spec:
+  selector:
+    matchLabels:
+      app: nginx # Look for this label to match with k8 service
+
+  replicas: 2 # Creates two pods for us
+
+  template:
+    metadata:
+      labels:
+        app: nginx
+
+    # Define the container spec
+    spec:
+      containers:
+        - name: nginx
+          image: nginx
+          ports:
+          - containerPort: 80
