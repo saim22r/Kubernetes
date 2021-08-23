@@ -34,6 +34,7 @@ The following link provides more detail on the managed services for K8 `https://
 
 ## What is the difference between K8 managed service and non-managed K8 services
 When we deploy a cluster through kubeadm, kubespray, or even by doing it manually (the hard way), you have full access to the cluster and master all the other related management components. You’ll also have more control over the deployment and administration of your cluster. For example, you can implement multiple node groups or choose to have different instance types for different nodes. These options are not available with many Kubernetes managed services.
+
 The following link provides more detail on the non-managed services for K8 `https://www.magalix.com/blog/provider-managed-vs.-self-managed-kubernetes`
 - Kubespray
 - Kubeadm
