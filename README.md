@@ -131,3 +131,6 @@ status:
 - Go to your localhost and nginx default page should be running
 
 ## Iteration 2 - Launching node app and db
+
+- Create four files in a new directory
+- `mongo_deploy.yml`, `mongo_service.yml`, `app_deploy.yml` and `app_service.yml`
