@@ -65,6 +65,8 @@ The following link provides more detail on the non-managed services for K8 `http
 - `kubectl edit svc <pod_name>` Edit service file in notepad
 - `kubectl delete deploy <pod_name>` Deletes the deploy pod 
 - `kubectl delete service <pod_name>` Deletes the service pod 
+- `kubectl describe pod POD_ID` Shows the logs of the pod to help debug
+- `kubectl scale deploy node-app --replicas=8`
 
 ## Iteration 1
 - Open the docker desktop app -> click on settings -> enable kubernetes and restart
