@@ -133,6 +133,33 @@ status:
 - Go to your localhost and nginx default page should be running
 
 ## Iteration 2 - Launching node app and db
-
 - Create four files in a new directory
 - `mongo_deploy.yml`, `mongo_service.yml`, `app_deploy.yml` and `app_service.yml`
+- The code is in the app_db_task directory
+- Create each file `kubectl create -f FILE_NAME.yml`
+- Check the pods have been created `kubectl get pods`
+- If a problem occurs use `kubectl describe pod POD_ID` to debug
+- Check the localhost to see if the app is working
+
+## Iteration 3 - Autoscaling
+- Create a new file in the same directory as iteration called `node-hpa.yml`
+- Add the following code:
+```
+apiVersion: autoscaling/v1
+kind: HorizontalPodAutoscaler
+
+metadata:
+  name: node-app # Name stated in the app_deploy.yml file
+  namespace: default
+
+spec:
+  maxReplicas: 9
+  minReplicas: 2
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: node-app
+  targetCPUUtilizationPercentage: 50
+```
+- Run `kubectl create -f node-hpa.yml` in the terminal
+- Check status using the command `kubectl get hpa`
